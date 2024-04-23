@@ -37,6 +37,31 @@ var config = {
 //     // return result 
 // }
 
+// ----------------------------------------------------------------
+// function get_crimedata_from_quantity(quantity, callback) {
+//     // connect to your database
+//     sql.connect(config, function (err) {
+//         if (err) {
+//             console.log(err);
+//             return callback(err);
+//         }
+
+//         // create Request object
+//         var request = new sql.Request();
+
+//         // query to the database and get the records
+//         request.query(`select top ${quantity} * from Crime_Data`, function (err, recordset) {
+//             if (err) {
+//                 console.log(err);
+//                 return callback(err);
+//             }
+
+//             // send records as a response
+//             callback(null, recordset.recordset);
+//         });
+//     });
+// }
+// module.exports = {get_crimedata_from_quantity}
 
 function get_crimedata_from_quantity(quantity, callback) {
     // connect to your database
@@ -48,9 +73,16 @@ function get_crimedata_from_quantity(quantity, callback) {
 
         // create Request object
         var request = new sql.Request();
-
+        const query = `
+            SELECT TOP 100 DR_NO, crm_cd_desc, LAT, LON
+            FROM Crime_Data
+            WHERE LEN(DR_NO) = 9
+            AND LAT IS NOT NULL
+            AND LON IS NOT NULL
+            AND crm_cd_desc IS NOT NULL;
+        `;
         // query to the database and get the records
-        request.query(`select top ${quantity} * from Crime_Data`, function (err, recordset) {
+        request.query(query, function (err, recordset) {
             if (err) {
                 console.log(err);
                 return callback(err);
@@ -62,5 +94,6 @@ function get_crimedata_from_quantity(quantity, callback) {
     });
 }
 module.exports = {get_crimedata_from_quantity}
+
 
 
