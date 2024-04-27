@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const con = require("./conn")
+const cors = require('cors');
+
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 //--------------------------------------------------------------
 // app.get('/get_crimes_data/:quantity', function (req, res) {
@@ -98,6 +101,13 @@ app.get('/get_gender_distribution_by_weapon/:weapon_desc', function (req, res) {
         res.send(result);
     });
 });
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
 
 // Iniciar el servidor
 const server = app.listen(5000, function () {
