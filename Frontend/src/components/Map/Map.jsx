@@ -1,45 +1,4 @@
-// import React, { useState } from 'react';
-// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import 'leaflet/dist/leaflet.css';
 
-// const CrimeMap = () => {
-//   const [selectedArea, setSelectedArea] = useState('');
-
-//   const handleAreaSelect = (area) => {
-//     setSelectedArea(area);
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
-//           <option value="">Seleccionar área</option>
-//           <option value="Newton">Newton</option>
-//           <option value="Central">Central</option>
-//           {/* Agrega más opciones según sea necesario */}
-//         </select>
-//       </div>
-//       <div style={{ height: '500px' }}>
-//         {/* las coordenadas de aqui aluden a que es la coordenada de los angeles */}
-//         <MapContainer center={[34.0522, -118.2437]} zoom={10} style={{ height: '100%', width: '100%' }}>
-//           <TileLayer
-//             url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-//             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
-//             id="mapbox/streets-v11"
-//             accessToken="pk.eyJ1IjoibXlzdGljMjMiLCJhIjoiY2x2aG11OTFwMTdvNTJpb3ppdGgyenRnNCJ9.3tmaMtmoEHwZtX_mEztE8Q"
-//           />
-//           {selectedArea && (
-//             <Marker position={[selectedArea.latitude, selectedArea.longitude]}>
-//               <Popup>{selectedArea.name}</Popup>
-//             </Marker>
-//           )}
-//         </MapContainer>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CrimeMap;
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -73,7 +32,11 @@ const CrimeMap = () => {
       <div>
         <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
           <option value="">Seleccionar área</option>
-          <option value="Newton">Southwest</option>
+          <option value="Newton">Newton</option>
+          <option value="Hollywood">Hollywood</option>
+          <option value="Southwest">Southwest</option>
+          <option value="Central">Central</option>
+          <option value="Pacific">Pacific</option>
           {/* Agregar más opciones según sea necesario */}
         </select>
       </div>
