@@ -4,7 +4,6 @@ import './Header.css';
 const Header = () => {
     return (
         <header className="header">
-            {/* Your header content goes here */}
         </header>
     );
 };
