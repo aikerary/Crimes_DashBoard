@@ -42,11 +42,11 @@ function get_victims_by_sex(date, callback) {
 
 function get_crime_count_and_hours_by_type(crm_cd_desc, callback) {
     const queryString = `
-        SELECT Crm_Cd_Desc, COUNT(Crm_Cd_Desc) AS NumeroDeCrimenes, TIME_OCC
-        FROM Crime_Data
-        WHERE Crm_Cd_Desc = @crm_cd_desc
-        GROUP BY Crm_Cd_Desc, TIME_OCC
-        ORDER BY TIME_OCC ASC;
+    SELECT Crm_Cd_Desc, COUNT(Crm_Cd_Desc) AS NumeroDeCrimenes, DATEPART(HOUR, TIME_OCC) AS Hour
+    FROM Crime_Data
+WHERE DATEPART(MINUTE, TIME_OCC) = 0 and Crm_Cd_Desc = @crm_cd_desc
+GROUP BY DATEPART(HOUR, TIME_OCC), Crm_Cd_Desc,TIME_OCC
+    ORDER BY TIME_OCC ASC;
     `;
     executeQuery(queryString, { crm_cd_desc }, callback);
 }

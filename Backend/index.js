@@ -3,7 +3,6 @@ const cors = require('cors'); // Importar el módulo cors
 const app = express();
 const con = require("./conn")
 
-const cors = require('cors');
 
 app.use(cors({ origin: 'http://localhost:5173' }));
 
