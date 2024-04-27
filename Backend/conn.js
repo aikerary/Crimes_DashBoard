@@ -54,7 +54,7 @@ function get_crime_count_and_hours_by_type(crm_cd_desc, callback) {
 
 function get_area_crime_concentration(areaName, callback) {
     const queryString = `
-        SELECT AREA_NAME, LAT, LON, COUNT(*) AS Cantidad
+        SELECT TOP 100 AREA_NAME, LAT, LON, COUNT(*) AS Cantidad
         FROM Crime_Data
         WHERE AREA_NAME = @areaName
         GROUP BY AREA_NAME, LAT, LON;
