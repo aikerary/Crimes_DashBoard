@@ -13,7 +13,9 @@ function App() {
     {/* <Map></Map>
     <Query_2 ></Query_2> 
     <Query_6></Query_6>*/}
-    <Query_6></Query_6>
+    {/* <Query_6></Query_6> */}
+    <Query_2 ></Query_2> 
+
     </>
   )
 }

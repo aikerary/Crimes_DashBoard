@@ -64,7 +64,7 @@ function CrimeVictimsChart() {
 
     // Validate selected date
     const minDate = new Date('2020-01-01');
-    const maxDate = new Date('2024-04-01');
+    const maxDate = new Date('2024-03-31');
     const selectedDateObj = new Date(selectedDate);
 
     if (selectedDateObj >= minDate && selectedDateObj <= maxDate) {
@@ -86,7 +86,7 @@ function CrimeVictimsChart() {
           value={selectedDate}
           onChange={handleDateChange}
           min="2020-01-01"
-          max="2024-04-01"
+          max="2024-03-31"
         />
       </div>
       <canvas id="crimeChart"></canvas>
