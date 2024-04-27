@@ -1,6 +1,8 @@
 const express = require('express');
+const cors = require('cors'); // Importar el módulo cors
 const app = express();
-const con = require("./conn")
+const con = require("./conn");
+
 
 //--------------------------------------------------------------
 // app.get('/get_crimes_data/:quantity', function (req, res) {
@@ -26,6 +28,9 @@ const con = require("./conn")
 // });
 //---------------------------------------------------------------
 
+// Configurar CORS para permitir solicitudes desde cualquier origen
+app.use(cors());
+
 // Ruta para obtener la ubicación de crímenes por tipo de delito
 app.get('/get_crime_location/:crime_type', function (req, res) {
     const crime_type = req.params.crime_type;
@@ -37,7 +42,7 @@ app.get('/get_crime_location/:crime_type', function (req, res) {
     });
 });
 
-// // Ruta para obtener la cantidad de víctimas por sexo en una fecha específica
+// Ruta para obtener la cantidad de víctimas por sexo en una fecha específica
 app.get('/get_victims_by_sex/:date', function (req, res) {
     const date = req.params.date;
     con.get_victims_by_sex(date, function (err, result) {
@@ -47,7 +52,6 @@ app.get('/get_victims_by_sex/:date', function (req, res) {
         res.send(result);
     });
 });
-
 
 // Ruta para obtener la cantidad de crímenes y las horas en que ocurrieron por tipo de delito
 app.get('/get_crime_count_and_hours/:crime_type', function (req, res) {
@@ -62,9 +66,7 @@ app.get('/get_crime_count_and_hours/:crime_type', function (req, res) {
     });
 });
 
-
-
-// // Ruta para obtener la concentración de crímenes por área
+// Ruta para obtener la concentración de crímenes por área
 app.get('/get_area_crime_concentration/:areaName', function (req, res) {
     const areaName = req.params.areaName; 
 
@@ -76,8 +78,7 @@ app.get('/get_area_crime_concentration/:areaName', function (req, res) {
     });
 });
 
-
-// // Ruta para obtener la cantidad de crímenes por tipo y hora
+// Ruta para obtener la cantidad de crímenes por tipo y hora
 app.get('/get_crime_count_by_type_and_hour/:crime_type', function (req, res) {
     const crime_type = req.params.crime_type;
     con.get_crime_count_by_type_and_hour(crime_type, function (err, result) {
@@ -88,7 +89,7 @@ app.get('/get_crime_count_by_type_and_hour/:crime_type', function (req, res) {
     });
 });
 
-// // Ruta para obtener la distribución de género por arma
+// Ruta para obtener la distribución de género por arma
 app.get('/get_gender_distribution_by_weapon/:weapon_desc', function (req, res) {
     const weapon_desc = req.params.weapon_desc;
     con.get_gender_distribution_by_weapon(weapon_desc, function (err, result) {
