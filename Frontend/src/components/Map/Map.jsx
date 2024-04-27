@@ -1,67 +1,67 @@
-import React, { useEffect, useRef, useState } from 'react';
-import L from 'leaflet';
+
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
-const Map = () => {
-  const [data, setData] = useState([]);
+const CrimeMap = () => {
   const [selectedArea, setSelectedArea] = useState('');
-  const mapRef = useRef(null);
+  const [areasData, setAreasData] = useState([]);
 
   useEffect(() => {
-    // Configurar el mapa inicial de Los Ángeles
-    const map = L.map('map').setView([34.0522, -118.2437], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-      maxZoom: 18,
-    }).addTo(map);
-
-    mapRef.current = map;
-  }, []);
-
-  useEffect(() => {
-    // Actualizar el mapa cuando se selecciona un área
-    if (selectedArea) {
-      fetchData(selectedArea);
-    }
+    fetchAreasData();
   }, [selectedArea]);
 
-  const fetchData = async (area) => {
+  const fetchAreasData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/get_area_crime_concentration/${area}`);
+      if (!selectedArea) return;
+
+      const response = await fetch(`http://localhost:5000/get_area_crime_concentration/${selectedArea}`);
       const data = await response.json();
-      setData(data);
-
-      // Limpiar el mapa anterior
-      mapRef.current.eachLayer((layer) => {
-        if (layer instanceof L.CircleMarker) {
-          mapRef.current.removeLayer(layer);
-        }
-      });
-
-      // Agregar los nuevos marcadores al mapa
-      data.forEach((item) => {
-        L.circleMarker([item.LAT, item.LON], { radius: item.Cantidad }).addTo(mapRef.current);
-      });
+      setAreasData(data);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching areas data:', error);
     }
   };
 
-  const handleAreaChange = (event) => {
-    setSelectedArea(event.target.value);
+  const handleAreaSelect = (area) => {
+    setSelectedArea(area);
   };
 
   return (
     <div>
-      <select value={selectedArea} onChange={handleAreaChange}>
-        <option value="">Seleccionar área</option>
-        <option value="area1">Newton</option>
-        <option value="area2">Central</option>
-        {/* Agregar más opciones de área según sea necesario */}
-      </select>
-      <MapContainer id="map" style={{ height: '500px' }} />
+      <div>
+        <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
+          <option value="">Seleccionar área</option>
+          <option value="Newton">Newton</option>
+          <option value="Hollywood">Hollywood</option>
+          <option value="Southwest">Southwest</option>
+          <option value="Central">Central</option>
+          <option value="Pacific">Pacific</option>
+          {/* Agregar más opciones según sea necesario */}
+        </select>
+      </div>
+      <div style={{ height: '500px' }}>
+        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '100%', width: '100%' }}>
+          <TileLayer
+            url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+            attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+            id="mapbox/streets-v11"
+            accessToken="pk.eyJ1IjoibXlzdGljMjMiLCJhIjoiY2x2aG11OTFwMTdvNTJpb3ppdGgyenRnNCJ9.3tmaMtmoEHwZtX_mEztE8Q"
+          />
+          {areasData.map((area, index) => (
+            <Marker key={index} position={[parseFloat(area.LAT), parseFloat(area.LON)]}>
+              <Popup>
+                <div>
+                  <h3>{area.AREA_NAME}</h3>
+                  <p>Cantidad de crímenes: {area.Cantidad}</p>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
     </div>
   );
 };
 
-export default Map;
+export default CrimeMap;
