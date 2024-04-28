@@ -32,8 +32,8 @@ const PieChart = () => {
       datasets: [{
         data: quantities,
         backgroundColor: [
+          'rgba(40, 38, 76, 1)',
           'rgba(164, 0, 51, 1)',
-          'rgba(54, 162, 235, 0.5)',
           // Add more colors as needed
         ],
         borderColor: [
