@@ -40,6 +40,7 @@ function App() {
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
             <Query1 />
             </Box>
+            
           </GridItem>
           <GridItem>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
