@@ -33,7 +33,7 @@ const BarChart = () => {
         label: `Number of Crimes for ${selectedCrime}`,
         data: crimeCounts,
         backgroundColor: 'rgba(164, 0, 51, 1)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        borderColor: 'rgba(164, 0, 51, 1)',
         borderWidth: 1
       }]
     };
