@@ -29,8 +29,9 @@ const CrimeMap = () => {
   return (
     <>
       <div>
-        <label htmlFor="crimeType">Select Crime Type:</label>
+        
         <select id="crimeType" value={selectedCrimeType} onChange={(e) => handleCrimeTypeSelect(e.target.value)}>
+         <option value="crimeType">Select Crime Type</option>
           <option value="ASSAULT WITH DEADLY WEAPON ON POLICE OFFICER">Assault with Deadly Weapon on Police Officer</option>
           <option value="ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT">Assault with Deadly Weapon, Aggravated Assault</option>
           <option value="ATTEMPTED ROBBERY">Attempted Robbery</option>
@@ -171,8 +172,8 @@ const CrimeMap = () => {
           <option value="WEAPONS POSSESSION/BOMBING">Weapons Possession/Bombing</option>
         </select>
       </div>
-      <div style={{ height: '500px' }}>
-        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '100%', width: '100%' }}>
+      <div>
+        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '600px', width: '900px' }}>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'

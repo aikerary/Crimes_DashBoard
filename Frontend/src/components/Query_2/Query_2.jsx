@@ -79,7 +79,7 @@ function CrimeVictimsChart() {
           id="datePicker"
           value={selectedDate}
           min="2020-01-01"
-          max="2024-04-01"
+          max="2024-03-31"
           onChange={handleDateChange}
         />
       </div>
