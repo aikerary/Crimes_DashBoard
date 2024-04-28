@@ -21,12 +21,24 @@ function App() {
       <Card>
         <Prop />
       </Card>
+      <Card>
+        <Numero />
+      </Card>
       <main>
         <Card header="Crimes Mapping by Area" description="
         This plot shows a mapping of the crimes by selected area
         ">
+          <Map/>
+        </Card>
+        <Card header="Victims by Descent and Area" description="
+        This plot shows a mapping of the crimes by selected area
+        ">
+          <Query5/>
+        </Card>
+        <Card header="Sex Victims By Date" description="
+        This plot shows a mapping of the crimes by selected area
+        ">
           <Query2/>
-          
         </Card>
       </main>
       <Footer />

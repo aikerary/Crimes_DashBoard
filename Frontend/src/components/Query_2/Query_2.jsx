@@ -71,7 +71,6 @@ function CrimeVictimsChart() {
 
   return (
     <>
-      <h1>Crime Victims Information</h1>
       <div>
         <label htmlFor="datePicker">Select Date:</label>
         <input

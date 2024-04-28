@@ -58,8 +58,8 @@ const CrimeMap = () => {
           {/* Agregar más opciones según sea necesario */}
         </select>
       </div>
-      <div>
-        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '600px', width: '900px'}}>
+      <div className='map-container'>
+        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '40em', width: '60em'}}>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'

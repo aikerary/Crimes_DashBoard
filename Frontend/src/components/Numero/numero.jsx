@@ -23,7 +23,7 @@ const TotalCrimeCount = () => {
   return (
     <div className="total-crime-count-container" style={{ textAlign: 'right', paddingRight: '20px' }}>
       <div className="total-crime-count">
-        <h2 style={{ fontSize: '40px', color: '#950101', fontFamily: 'Arial, sans-serif' }}>Total Crime Count</h2>
+        <h2 style={{ fontSize: '40px', color: 'black', fontFamily: 'Arial, sans-serif' }}>Total Crime Count</h2>
         {totalCrimeCount !== null ? (
           <p style={{ fontSize: '140px', color: '#950101', fontFamily: 'Arial, sans-serif' }}>
             <span style={{ fontWeight: 'bold' }}>{totalCrimeCount}</span>
