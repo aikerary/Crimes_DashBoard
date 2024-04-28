@@ -137,7 +137,7 @@ const PieChart = () => {
 
         </select>
       </div>
-      <div style={{ width: '400px', height: '400px' }}>
+      <div style={{ width: '300px', height: '400px' }}>
         <canvas id="pieChart"></canvas>
       </div>
     </div>
