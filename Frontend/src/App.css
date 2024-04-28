@@ -1,29 +1,53 @@
+/* Estilos generales */
 .app-container {
+    background-color: #28264c; /* Azul oscuro de fondo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Estilos para el encabezado */
+  .header-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+/* Estilos para los cards de consultas */
+.query-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
   }
   
-  .purpose-card,
-  .query2-card,
-  .query1-card,
-  .query3-card,
-  .query4-card,
-  .query5-card,
-  .query6-card {
-    background-color: #f0f0f0;
-    border-radius: 8px;
+  .query-card {
+    background-color: #E8EAE7; /* Gris claro de fondo para cards */
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Ajustes para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .app-container {
-      grid-template-columns: 1fr;
+  /* Estilos responsivos */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .query-cards-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dos cards por fila en pantallas medianas */
     }
   }
   
-  /* Añade aquí más Media Queries según sea necesario para ajustar el diseño en diferentes tamaños de pantalla */
+  @media (min-width: 1025px) {
+    .query-cards-container {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Tres cards por fila en pantallas grandes */
+    }
+  }
+  
+  
+  /* Estilos para el mapa */
+  .map-container {
+    width: 100%;
+    height: 400px; /* Ajusta el alto según tus necesidades */
+  }
   
