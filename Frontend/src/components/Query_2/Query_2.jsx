@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
 function CrimeVictimsChart() {
   const [selectedDate, setSelectedDate] = useState('');
   const [victimData, setVictimData] = useState([]);
+  const chartRef = useRef(null);
 
   useEffect(() => {
     if (selectedDate) {
@@ -23,39 +24,45 @@ function CrimeVictimsChart() {
   }
 
   const renderChart = (data) => {
-    const ctx = document.getElementById('crimeVictimsChart');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Female', 'Male', 'Other'],
-        datasets: [{
-          label: 'Crime Victims by Sex',
-          data: [
-            data.find(victim => victim.Vict_Sex === 'F').Cantidad,
-            data.find(victim => victim.Vict_Sex === 'M').Cantidad,
-            data.find(victim => victim.Vict_Sex === 'X').Cantidad
-          ],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
+    const ctx = chartRef.current.getContext('2d');
+    if (chartRef.current !== null) {
+      // Destruir el gráfico existente si ya existe
+      if (chartRef.current.chart) {
+        chartRef.current.chart.destroy();
+      }
+      chartRef.current.chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Female', 'Male', 'Other'],
+          datasets: [{
+            label: 'Crime Victims by Sex',
+            data: [
+              data.find(victim => victim.Vict_Sex === 'F').Cantidad,
+              data.find(victim => victim.Vict_Sex === 'M').Cantidad,
+              data.find(victim => victim.Vict_Sex === 'X').Cantidad
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
           }
         }
-      }
-    });
+      });
+    }
   }
 
   const handleDateChange = (event) => {
@@ -77,7 +84,7 @@ function CrimeVictimsChart() {
         />
       </div>
       <div>
-        <canvas id="crimeVictimsChart" width="400" height="200"></canvas>
+        <canvas ref={chartRef} width="400" height="200"></canvas>
       </div>
     </div>
   );
