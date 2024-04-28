@@ -30,13 +30,30 @@ const CrimeMap = () => {
   return (
     <div>
       <div>
-        <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
-          <option value="">Seleccionar área</option>
-          <option value="Newton">Newton</option>
-          <option value="Hollywood">Hollywood</option>
-          <option value="Southwest">Southwest</option>
+         <option value="">Select area</option>
+         <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
+          <option value="77th Street">77th Street</option>
           <option value="Central">Central</option>
+          <option value="Devonshire">Devonshire</option>
+          <option value="Foothill">Foothill</option>
+          <option value="Harbor">Harbor</option>
+          <option value="Hollywood">Hollywood</option>
+          <option value="Hollenbeck">Hollenbeck</option>
+          <option value="Mission">Mission</option>
+          <option value="N Hollywood">N Hollywood</option>
+          <option value="Newton">Newton</option>
+          <option value="Northeast">Northeast</option>
+          <option value="Olympic">Olympic</option>
           <option value="Pacific">Pacific</option>
+          <option value="Rampart">Rampart</option>
+          <option value="Southeast">Southeast</option>
+          <option value="Southwest">Southwest</option>
+          <option value="Topanga">Topanga</option>
+          <option value="Van Nuys">Van Nuys</option>
+          <option value="West LA">West LA</option>
+          <option value="West Valley">West Valley</option>
+          <option value="Wilshire">Wilshire</option>
+
           {/* Agregar más opciones según sea necesario */}
         </select>
       </div>
