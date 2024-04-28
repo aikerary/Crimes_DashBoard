@@ -7,6 +7,8 @@ import Query2 from "./components/Query_2/Query_2";
 import Query3 from "./components/Query_3/Query_3";
 import Query5 from "./components/Query_5/Query_5";
 import Query6 from "./components/Query_6/Query_6";
+import Numero from "./components/Numero/numero";
+import AreaTotal from "./components/AreaTotal/Area_Total";
 import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
 import './App.css'
@@ -14,9 +16,18 @@ import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"
 
 function App() {
   return (
-
+    <>
+      <Header />
+      <Card>
+      <Prop />
+      </Card>
+      <main>
+  
+          <Numero/>
+       
+      </main>
+      <Footer />
+    </>
   );
 }
-
-
 export default App;

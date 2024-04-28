@@ -1,0 +1,3 @@
+SELECT AREA_NAME, COUNT(*) AS NumeroDeRegistros
+FROM Crime_Data
+GROUP BY AREA_NAME;

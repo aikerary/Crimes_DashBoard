@@ -31,6 +31,27 @@ app.use(cors({ origin: 'http://localhost:5173' }));
 // Configurar CORS para permitir solicitudes desde cualquier origen
 app.use(cors());
 
+// Ruta para obtener el número total de delitos
+app.get('/get_total_crime_count', function (req, res) {
+    con.get_total_crime_count(function (err, result) {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.send(result);
+    });
+});
+
+// Ruta para obtener el número de registros por AREA_NAME
+app.get('/get_area_count_total', function (req, res) {
+    con.get_area_count(function (err, result) {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.send(result);
+    });
+});
+
+
 // Ruta para obtener la ubicación de crímenes por tipo de delito
 app.get('/get_crime_location/:crime_type', function (req, res) {
     const crime_type = req.params.crime_type;
