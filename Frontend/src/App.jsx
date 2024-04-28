@@ -11,10 +11,11 @@ function App() {
 
   return (
     <>
-   <Map></Map>
+    <Map></Map>
     <Query_2 ></Query_2> 
     <Query_6></Query_6>
     <Query_3></Query_3>
+    <Query_1 ></Query_1> 
     </>
   )
 }

@@ -14,7 +14,7 @@ var config = {
 // Funciones para ejecutar consultas
 function get_crime_location_by_type(crm_cd_desc, callback) {
     const queryString = `
-        SELECT TOP 5000 LON, LAT
+        SELECT TOP 1000 LON, LAT
         FROM Crime_Data
         WHERE crm_cd_desc = @crm_cd_desc
           AND LAT IS NOT NULL
@@ -54,7 +54,7 @@ GROUP BY DATEPART(HOUR, TIME_OCC), Crm_Cd_Desc,TIME_OCC
 
 function get_area_crime_concentration(areaName, callback) {
     const queryString = `
-        SELECT TOP 100 AREA_NAME, LAT, LON, COUNT(*) AS Cantidad
+        SELECT TOP 1000 AREA_NAME, LAT, LON, COUNT(*) AS Cantidad
         FROM Crime_Data
         WHERE AREA_NAME = @areaName
         GROUP BY AREA_NAME, LAT, LON;
