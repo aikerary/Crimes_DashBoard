@@ -7,6 +7,8 @@ import Query2 from "./components/Query_2/Query_2";
 import Query3 from "./components/Query_3/Query_3";
 import Query5 from "./components/Query_5/Query_5";
 import Query6 from "./components/Query_6/Query_6";
+import Numero from "./components/Numero/numero";
+import AreaTotal from "./components/AreaTotal/Area_Total";
 import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
 import "./App.css";
@@ -28,5 +30,8 @@ function App() {
     </>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5a67c1dc85f07140773b8d94b5d30e1dd8efff04
 export default App;

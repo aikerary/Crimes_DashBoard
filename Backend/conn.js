@@ -11,6 +11,26 @@ var config = {
     options: { trustServerCertificate: true }
 };
 
+
+function get_total_crime_count(callback) {
+    const queryString = `
+        SELECT COUNT(Crm_Cd_Desc) AS Total_Delitos
+        FROM Crime_Data;
+    `;
+    executeQuery(queryString, {}, callback);
+}
+///////////////// http://localhost:5000/get_total_crime_count
+
+function get_area_count(callback) {
+    const queryString = `
+        SELECT AREA_NAME, COUNT(*) AS NumeroDeRegistros
+        FROM Crime_Data
+        GROUP BY AREA_NAME;
+    `;
+    executeQuery(queryString, {}, callback);
+}
+
+
 // Funciones para ejecutar consultas
 function get_crime_location_by_type(crm_cd_desc, callback) {
     const queryString = `
@@ -130,6 +150,8 @@ function executeQuery(queryString, params, callback) {
 }
 
 module.exports = {
+    get_total_crime_count,
+    get_area_count,
     get_crime_location_by_type,
     get_victims_by_sex,
     get_crime_count_and_hours_by_type,
