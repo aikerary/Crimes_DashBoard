@@ -14,7 +14,18 @@ import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"
 
 function App() {
   return (
-
+    <>
+      <Header />
+      <Card>
+      <Prop />
+      </Card>
+      <main>
+        <Card>
+          <Map />
+        </Card>
+      </main>
+      <Footer />
+    </>
   );
 }
 
