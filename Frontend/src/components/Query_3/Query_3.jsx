@@ -32,8 +32,8 @@ const BarChart = () => {
       datasets: [{
         label: `Number of Crimes for ${selectedCrime}`,
         data: crimeCounts,
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: 'rgba(164, 0, 51, 1)',
+        borderColor: 'rgba(164, 0, 51, 1)',
         borderWidth: 1
       }]
     };
@@ -220,7 +220,7 @@ const BarChart = () => {
 
         </select>
       </div>
-      <div style={{ width: '800px', height: '400px' }}>
+      <div style={{ width: '380px', height: '400px' }}>
         <canvas id="barChart"></canvas>
       </div>
     </div>
