@@ -2,7 +2,7 @@
     font-family: var(--font-family-title);
     background-color: var(--sub-background-color);
     color: var(--header-color);
-    padding: 40px;
+    padding: 70px;
     text-transform: uppercase;
     display: flex;
     justify-content: center;

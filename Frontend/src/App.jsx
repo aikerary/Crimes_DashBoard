@@ -9,7 +9,7 @@ import Query5 from "./components/Query_5/Query_5";
 import Query6 from "./components/Query_6/Query_6";
 import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
-import './App.css'
+import "./App.css";
 import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
 
 function App() {
@@ -17,10 +17,10 @@ function App() {
     <>
       <Header />
       <Card>
-      <Prop />
+        <Prop />
       </Card>
       <main>
-        <Card>
+        <Card header="Hello World" description="lorem ipsum">
           <Map />
         </Card>
       </main>
@@ -28,6 +28,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;

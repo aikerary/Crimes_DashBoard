@@ -4,11 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
 :root{
-    --background-color:#28264c;
-    --header-color: #a40033;
-    --sub-background-color: #959ec9;
-    --text-color: #f5f5f5;
-    --card-color: #373469;
+    --background-color:#f5f5f5;
+    --header-color: white;
+    --sub-background-color: #7d0a0a;
+    --text-color: #000000;
+    --card-color: #e8eae7;
+    --title-color: #D86085;
     --font-family:'Roboto', sans-serif;
     --font-family-title:'Montserrat', sans-serif;
 }
