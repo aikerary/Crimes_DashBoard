@@ -32,8 +32,8 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "#28264c", // Fondo oscuro
-        color: "white", // Color de texto blanco
+        bg: "#28264C", // Fondo oscuro
+        color: "black", // Color de texto blanco
       },
     },
   },
