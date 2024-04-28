@@ -1,0 +1,29 @@
+.app-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .purpose-card,
+  .query2-card,
+  .query1-card,
+  .query3-card,
+  .query4-card,
+  .query5-card,
+  .query6-card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Ajustes para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .app-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Añade aquí más Media Queries según sea necesario para ajustar el diseño en diferentes tamaños de pantalla */
+  

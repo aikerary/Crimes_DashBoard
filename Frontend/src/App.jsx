@@ -9,17 +9,29 @@ import Query_1 from './components/Query_1/Query_1'
 import Prop from './components/Prop/Prop'
 
 function App() {
-
   return (
-    <>
-    <Prop></Prop>
-    <Map></Map>
-    <Query_2 ></Query_2> 
-    <Query_6></Query_6>
-    <Query_3></Query_3>
-    <Query_1 ></Query_1> 
-    </>
-  )
+    <div className="app-container">
+      <div className="purpose-card">
+        <Prop></Prop>
+      </div>
+      <div className="query2-card">
+        <Query_2></Query_2>
+      </div>
+      <div className="query1-card">
+        <Query_1></Query_1>
+      </div>
+      <div className="query3-card">
+        <Query_3></Query_3>
+      </div>
+      <div className="query4-card">
+        <Map></Map>
+      </div>
+      <div className="query6-card">
+        <Query_6></Query_6>
+      </div>
+
+    </div>
+  );
 }
 
 export default App
