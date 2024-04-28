@@ -1,10 +1,68 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import ReactApexChart from 'react-apexcharts';
+import './Query_2.css'
 
 function CrimeVictimsChart() {
   const [selectedDate, setSelectedDate] = useState('');
   const [victimData, setVictimData] = useState([]);
-  const chartRef = useRef(null);
+  const chartOptions = useRef({
+    chart: {
+      type: 'bar'
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: '55%',
+        endingShape: 'rounded'
+      },
+    },
+    xaxis: {
+      categories: ['Female', 'Male', 'Other']
+    },
+    yaxis: {
+      title: {
+        text: 'Quantity',
+        style: {
+          fontSize: '16px',
+          color: '#950101'
+        }
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 14,
+          columnWidth: '50%',
+        }
+      },
+      axisBorder: {
+        show: true,
+        color: '#950101'
+      },
+      axisTicks: {
+        show: true,
+        color: '#950101'
+      }
+    },
+    colors: ['#950101', '#28264C', '#605C5C'],
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: "horizontal",
+        shadeIntensity: 0.25,
+        gradientToColors: undefined,
+        inverseColors: true,
+        opacityFrom: 0.85,
+        opacityTo: 0.85,
+        stops: [50, 0, 100]
+      },
+      grid: {
+        row: {
+          colors: ['#fff', '#f2f2f2']
+        }
+      },
+    }
+  });
+  const [chartSeries, setChartSeries] = useState([]);
 
   useEffect(() => {
     if (selectedDate) {
@@ -17,51 +75,14 @@ function CrimeVictimsChart() {
       const response = await fetch(`http://localhost:5000/get_victims_by_sex/${selectedDate}`);
       const data = await response.json();
       setVictimData(data);
-      renderChart(data);
+      const seriesData = [
+        data.find(victim => victim.Vict_Sex === 'F').Cantidad,
+        data.find(victim => victim.Vict_Sex === 'M').Cantidad,
+        data.find(victim => victim.Vict_Sex === 'X').Cantidad
+      ];
+      setChartSeries([{ data: seriesData }]);
     } catch (error) {
       console.error('Error fetching data:', error);
-    }
-  }
-
-  const renderChart = (data) => {
-    const ctx = chartRef.current.getContext('2d');
-    if (chartRef.current !== null) {
-      // Destruir el gráfico existente si ya existe
-      if (chartRef.current.chart) {
-        chartRef.current.chart.destroy();
-      }
-      chartRef.current.chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Female', 'Male', 'Other'],
-          datasets: [{
-            label: 'Crime Victims by Sex',
-            data: [
-              data.find(victim => victim.Vict_Sex === 'F').Cantidad,
-              data.find(victim => victim.Vict_Sex === 'M').Cantidad,
-              data.find(victim => victim.Vict_Sex === 'X').Cantidad
-            ],
-            backgroundColor: [
-              'rgba(164, 0, 51, 1)',
-              'rgba(40, 38, 76, 1)',
-              'rgba(149, 158, 201, 1)'
-            ],
-            borderColor: [
-              'rgba(164, 0, 51, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
     }
   }
 
@@ -71,8 +92,8 @@ function CrimeVictimsChart() {
 
   return (
     <>
-      <div>
-        <label htmlFor="datePicker">Select Date:</label>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <label htmlFor="datePicker" style={{ fontSize: '25px', color: '#950101' }}>Select Date:</label>
         <input
           type="date"
           id="datePicker"
@@ -80,14 +101,19 @@ function CrimeVictimsChart() {
           min="2020-01-01"
           max="2024-03-31"
           onChange={handleDateChange}
+          style={{ marginLeft: '10px' }}
         />
       </div>
       <div>
-        <canvas ref={chartRef} width="400" height="500"></canvas>
+        <ReactApexChart
+          options={chartOptions.current}
+          series={chartSeries}
+          type="bar"
+          height={400}
+        />
       </div>
     </>
   );
 }
 
 export default CrimeVictimsChart;
- 
