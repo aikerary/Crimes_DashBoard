@@ -22,9 +22,9 @@ function App() {
       <Prop />
       </Card>
       <main>
-  
-          <Numero/>
-       
+        <Card>
+          <Map />
+        </Card>
       </main>
       <Footer />
     </>
