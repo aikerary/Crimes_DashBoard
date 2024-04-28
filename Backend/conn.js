@@ -65,17 +65,26 @@ function get_area_crime_concentration(areaName, callback) {
 
 ////// EJEMPLO DE CONEXION: http://localhost:5000/get_area_crime_concentration/Newton
 
-function get_crime_count_by_type_and_hour(crm_cd_desc, callback) {
+function get_victims_by_descent_and_area(areaName, callback) {
     const queryString = `
-        SELECT TIME_OCC, COUNT(*) AS NumeroDeCrimenes
-        FROM Crime_Data
-        WHERE Crm_Cd_Desc = @crm_cd_desc
-        GROUP BY TIME_OCC;
+        SELECT 
+            Vict_Descent,
+            COUNT(*) AS Cantidad
+        FROM 
+            Crime_Data
+        WHERE 
+            Vict_Descent IS NOT NULL
+            AND AREA_NAME = @areaName
+        GROUP BY 
+            Vict_Descent
+        ORDER BY 
+            Cantidad DESC;
     `;
 
-    executeQuery(queryString, { crm_cd_desc }, callback);
+    executeQuery(queryString, { areaName }, callback);
 }
-/////////////////EJEMPLO DE CONEXION: http://localhost:5000/get_crime_count_by_type_and_hour/VEHICLE%20-%20STOLEN
+
+/////////////////EJEMPLO DE CONEXION: http://localhost:5000/get_victims_by_descent_and_area/Newton
 
 function get_gender_distribution_by_weapon(weapon_desc, callback) {
     const queryString = `
@@ -125,7 +134,7 @@ module.exports = {
     get_victims_by_sex,
     get_crime_count_and_hours_by_type,
     get_area_crime_concentration,
-    get_crime_count_by_type_and_hour,
+    get_victims_by_descent_and_area,
     get_gender_distribution_by_weapon,
 
 };
