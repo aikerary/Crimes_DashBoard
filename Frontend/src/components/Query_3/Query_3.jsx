@@ -220,7 +220,7 @@ const BarChart = () => {
 
         </select>
       </div>
-      <div style={{ width: '380px', height: '400px' }}>
+      <div style={{ width: '360px', height: '400px' }}>
         <canvas id="barChart"></canvas>
       </div>
     </div>
