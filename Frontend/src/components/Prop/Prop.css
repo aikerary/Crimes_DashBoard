@@ -1,0 +1,15 @@
+/* Prop.css */
+
+.crime-dashboard-container {
+    color: white;
+    text-align: justify; /* Alineación justificada */
+    margin-right: 320px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  @media (max-width: 768px) {
+    .crime-dashboard-container {
+      margin-right: 0;
+    }
+  }
+  
