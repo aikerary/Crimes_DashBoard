@@ -78,16 +78,18 @@ app.get('/get_area_crime_concentration/:areaName', function (req, res) {
     });
 });
 
-// Ruta para obtener la cantidad de crímenes por tipo y hora
-app.get('/get_crime_count_by_type_and_hour/:crime_type', function (req, res) {
-    const crime_type = req.params.crime_type;
-    con.get_crime_count_by_type_and_hour(crime_type, function (err, result) {
+
+// Ruta para obtener la cantidad de víctimas por ascendencia y área
+app.get('/get_victims_by_descent_and_area/:areaName', function (req, res) {
+    const areaName = req.params.areaName;
+    con.get_victims_by_descent_and_area(areaName, function (err, result) {
         if (err) {
             return res.status(500).send(err);
         }
         res.send(result);
     });
 });
+
 
 // Ruta para obtener la distribución de género por arma
 app.get('/get_gender_distribution_by_weapon/:weapon_desc', function (req, res) {
