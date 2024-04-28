@@ -9,7 +9,7 @@
     --sub-background-color: #7d0a0a;
     --text-color: #000000;
     --card-color: #e8eae7;
-    --title-color: #D86085;
+    --title-color: #7d0a0a;
     --font-family:'Roboto', sans-serif;
     --font-family-title:'Montserrat', sans-serif;
 }
@@ -40,4 +40,13 @@ main{
 
 select{
     font-family: var(--font-family);
+    font-size: 1em;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--sub-background-color);
+    color: var(--header-color);
+    border: 2px solid var(--sub-background-color);
+    border-radius: 20px;
+    font-family: var(--font-family-title);
 }
+

@@ -22,7 +22,9 @@ function App() {
         <Prop />
       </Card>
       <main>
-        <Card header="Hello World" description="lorem ipsum">
+        <Card header="Crimes Mapping by Area" description="
+        This plot shows a mapping of the crimes by selected area
+        ">
           <Map />
         </Card>
       </main>
