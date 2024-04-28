@@ -11,7 +11,7 @@ import Numero from "./components/Numero/numero";
 import AreaTotal from "./components/AreaTotal/Area_Total";
 import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
-import './App.css'
+import "./App.css";
 import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
 
 function App() {
@@ -19,10 +19,10 @@ function App() {
     <>
       <Header />
       <Card>
-      <Prop />
+        <Prop />
       </Card>
       <main>
-        <Card>
+        <Card header="Hello World" description="lorem ipsum">
           <Map />
         </Card>
       </main>

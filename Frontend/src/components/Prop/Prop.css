@@ -5,7 +5,7 @@
     text-align: justify; /* Alineación justificada */
     margin-right: 320px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px; /* Tamaño de la letra */
+    font-size: 0.7em; /* Tamaño de la letra */
   }
   
   @media (max-width: 768px) {

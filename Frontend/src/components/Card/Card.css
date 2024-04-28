@@ -1,14 +1,36 @@
-.card{
-    width: fit-content;
+.card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--card-color);
     padding: 40px;
     margin: 40px;
+    box-shadow: 1px 1px 10px 1px var(--background-color);
+    border-radius: 30px;
+}
+
+.card-container h1{
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-family: var(--font-family-title);
+    color: var(--title-color);
+}
+
+.card-container p{
+    font-size: 1.5em;
+    font-family: var(--font-family-title);
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+.card{
+    font-size: 1.5em;
+    width: fit-content;
     position: relative;
-    background-color: var(--card-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 10px 1px var(--background-color);
-    border-radius: 40px;
 }
 
 .card>*>*{
