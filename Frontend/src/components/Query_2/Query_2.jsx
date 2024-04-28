@@ -42,12 +42,12 @@ function CrimeVictimsChart() {
               data.find(victim => victim.Vict_Sex === 'X').Cantidad
             ],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)'
+              'rgba(164, 0, 51, 1)',
+              'rgba(40, 38, 76, 1)',
+              'rgba(149, 158, 201, 1)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
+              'rgba(164, 0, 51, 1)',
               'rgba(54, 162, 235, 1)',
               'rgba(255, 206, 86, 1)'
             ],
@@ -84,7 +84,7 @@ function CrimeVictimsChart() {
         />
       </div>
       <div>
-        <canvas ref={chartRef} width="400" height="200"></canvas>
+        <canvas ref={chartRef} width="400" height="500"></canvas>
       </div>
     </div>
   );
