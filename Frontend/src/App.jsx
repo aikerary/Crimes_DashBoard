@@ -8,6 +8,7 @@ import Query2 from "./components/Query_2/Query_2";
 import Query3 from "./components/Query_3/Query_3";
 import Query6 from "./components/Query_6/Query_6";
 import Prop from "./components/Prop/Prop";
+import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
 import theme from "./theme";
 
 function App() {
@@ -19,6 +20,21 @@ function App() {
           <GridItem colSpan={2}>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
               <Prop />
+            </Box>
+          </GridItem>
+          <GridItem colSpan={2}>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Cantidad_Crimenes />
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Query1 />
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Map />
             </Box>
           </GridItem>
           <GridItem>
@@ -34,17 +50,6 @@ function App() {
           <GridItem colSpan={2}>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
               <Query3 />
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-            <Query1 />
-            </Box>
-            
-          </GridItem>
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Map />
             </Box>
           </GridItem>
         </Grid>
