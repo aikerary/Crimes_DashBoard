@@ -1,5 +1,5 @@
 // App.js
-import { ChakraProvider, Container, Grid, GridItem, Box } from "@chakra-ui/react";
+import { ChakraProvider, Container, Box, Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Map from "./components/Map/Map";
@@ -15,17 +15,13 @@ function App() {
     <ChakraProvider theme={theme}>
       <Container maxW="container.lg" py={8}>
         <Header />
-        <Grid
-          templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
-          gap={6}
-          mt={8}
-        >
-          <GridItem colSpan={{ base: 2, md: 1 }}>
+        <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6} mt={8}>
+          <GridItem colSpan={2}>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
               <Prop />
             </Box>
           </GridItem>
-          <GridItem colSpan={{ base: 2, md: 1 }}>
+          <GridItem>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
               <Query6 />
             </Box>
@@ -35,14 +31,14 @@ function App() {
               <Query2 />
             </Box>
           </GridItem>
-          <GridItem>
+          <GridItem colSpan={2}>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Query1 />
+              <Query3 />
             </Box>
           </GridItem>
           <GridItem>
             <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Query3 />
+            <Query1 />
             </Box>
           </GridItem>
           <GridItem>
