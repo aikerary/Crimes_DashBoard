@@ -12,6 +12,7 @@ function App() {
   return (
     <>
    <Map></Map>
+   <Query_1></Query_1>
     <Query_2 ></Query_2> 
     <Query_6></Query_6>
     <Query_3></Query_3>
