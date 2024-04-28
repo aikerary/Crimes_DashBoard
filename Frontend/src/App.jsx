@@ -6,11 +6,13 @@ import Query_6 from './components/Query_6/Query_6'
 import Query_2 from './components/Query_2/Query_2'
 import Query_3 from './components/Query_3/Query_3'
 import Query_1 from './components/Query_1/Query_1'
+import Prop from './components/Prop/Prop'
 
 function App() {
 
   return (
     <>
+    <Prop></Prop>
     <Map></Map>
     <Query_2 ></Query_2> 
     <Query_6></Query_6>
