@@ -1,6 +1,6 @@
 /* Estilos generales */
 .app-container {
-    background-color: #28264c; /* Azul oscuro de fondo */
+    background-color: #28264c;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,37 +17,51 @@
     margin-bottom: 20px;
   }
   
-/* Estilos para los cards de consultas */
-.query-cards-container {
+  /* Estilos para los cards de consultas */
+  .query-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    width: 100%;
   }
   
   .query-card {
-    background-color: #E8EAE7; /* Gris claro de fondo para cards */
+    background-color: #E8EAE7;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 40px); /* Teniendo en cuenta el padding horizontal */
   }
   
-  /* Estilos responsivos */
-  @media (min-width: 769px) and (max-width: 1024px) {
+  /* Establecer tamaños de los cards para diferentes niveles */
+  /* Dos cards en una fila para pantallas pequeñas */
+  @media (min-width: 576px) {
     .query-cards-container {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dos cards por fila en pantallas medianas */
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
-  @media (min-width: 1025px) {
+  /* Tres cards en una fila para pantallas medianas */
+  @media (min-width: 768px) {
     .query-cards-container {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Tres cards por fila en pantallas grandes */
+      grid-template-columns: repeat(3, 1fr);
     }
   }
   
+  /* Dos cards en una fila para pantallas grandes */
+  @media (min-width: 992px) {
+    .query-cards-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Ajuste de altura para el Query_2 card */
+  .query-card.Query_2 {
+    height: 50%;
+  }
   
   /* Estilos para el mapa */
   .map-container {
     width: 100%;
-    height: 400px; /* Ajusta el alto según tus necesidades */
+    height: 400px;
   }
   

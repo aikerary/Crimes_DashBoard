@@ -1,41 +1,59 @@
-import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Map from './components/Map/Map';
-import Query_6 from './components/Query_6/Query_6';
-import Query_2 from './components/Query_2/Query_2';
-import Query_3 from './components/Query_3/Query_3';
-import Query_1 from './components/Query_1/Query_1';
-import Prop from './components/Prop/Prop';
+// App.js
+import { ChakraProvider, Container, Grid, GridItem, Box } from "@chakra-ui/react";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Map from "./components/Map/Map";
+import Query1 from "./components/Query_1/Query_1";
+import Query2 from "./components/Query_2/Query_2";
+import Query3 from "./components/Query_3/Query_3";
+import Query6 from "./components/Query_6/Query_6";
+import Prop from "./components/Prop/Prop";
+import theme from "./theme";
 
 function App() {
   return (
-    <div className="app-container">
-      <div className="header-container">
+    <ChakraProvider theme={theme}>
+      <Container maxW="container.lg" py={8}>
         <Header />
-        <Prop />
-      </div>
-      <div className="main-content">
-        <div className="query-cards-container">
-          <div className="query-card">
-            <Query_2 />
-          </div>
-          <div className="query-card">
-            <Query_1 />
-          </div>
-          <div className="query-card">
-            <Query_3 />
-          </div>
-        </div>
-        <div className="query-card">
-          <Map />
-        </div>
-        <div className="query-card">
-          <Query_6 />
-        </div>
-      </div>
-      <Footer />
-    </div>
+        <Grid
+          templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+          gap={6}
+          mt={8}
+        >
+          <GridItem colSpan={{ base: 2, md: 1 }}>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Prop />
+            </Box>
+          </GridItem>
+          <GridItem colSpan={{ base: 2, md: 1 }}>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Query6 />
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Query2 />
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Query1 />
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Query3 />
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
+              <Map />
+            </Box>
+          </GridItem>
+        </Grid>
+        <Footer />
+      </Container>
+    </ChakraProvider>
   );
 }
 
