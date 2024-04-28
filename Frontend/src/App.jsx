@@ -7,14 +7,21 @@ import Query2 from "./components/Query_2/Query_2";
 import Query3 from "./components/Query_3/Query_3";
 import Query6 from "./components/Query_6/Query_6";
 import Prop from "./components/Prop/Prop";
+import Card from "./components/Card/Card";
+import './App.css'
 import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
 
 function App() {
   return (
     <>
       <Header />
+      <Card>
+      <Prop />
+      </Card>
       <main>
-
+        <Card>
+          <Map />
+        </Card>
       </main>
       <Footer />
     </>

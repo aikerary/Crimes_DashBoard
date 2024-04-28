@@ -66,7 +66,7 @@ const PieChart = () => {
   };
 
   return (
-    <div>
+    <>
       <h2>Crime Statistics by Gender</h2>
       <div>
         <label htmlFor="weaponSelect">Select Weapon:</label>
@@ -140,7 +140,7 @@ const PieChart = () => {
       <div style={{ width: '300px', height: '400px' }}>
         <canvas id="pieChart"></canvas>
       </div>
-    </div>
+    </>
   );
 };
 

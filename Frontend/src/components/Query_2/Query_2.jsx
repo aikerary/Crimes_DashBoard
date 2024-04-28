@@ -70,7 +70,7 @@ function CrimeVictimsChart() {
   }
 
   return (
-    <div>
+    <>
       <h1>Crime Victims Information</h1>
       <div>
         <label htmlFor="datePicker">Select Date:</label>
@@ -86,7 +86,7 @@ function CrimeVictimsChart() {
       <div>
         <canvas ref={chartRef} width="400" height="500"></canvas>
       </div>
-    </div>
+    </>
   );
 }
 

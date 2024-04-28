@@ -36,3 +36,7 @@ main{
     flex-shrink: 0;
     flex-basis: auto;
 }
+
+select{
+    font-family: var(--font-family);
+}

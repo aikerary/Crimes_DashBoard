@@ -1,0 +1,16 @@
+.card{
+    width: fit-content;
+    padding: 40px;
+    margin: 40px;
+    position: relative;
+    background-color: var(--card-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 10px 1px var(--background-color);
+    border-radius: 40px;
+}
+
+.card>*>*{
+    margin: 20px;
+}
