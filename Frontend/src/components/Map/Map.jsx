@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import './Map.css'
 
 const CrimeMap = () => {
   const [selectedArea, setSelectedArea] = useState('');
@@ -28,7 +29,7 @@ const CrimeMap = () => {
   };
 
   return (
-    <div>
+    <>
       <div>
          <option value="">Select area</option>
          <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
@@ -57,8 +58,8 @@ const CrimeMap = () => {
           {/* Agregar más opciones según sea necesario */}
         </select>
       </div>
-      <div style={{ height: '500px' }}>
-        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '100%', width: '100%' }}>
+      <div>
+        <MapContainer center={[34.0522, -118.2437]} zoom={12} style={{ height: '600px', width: '900px'}}>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
             attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
@@ -77,7 +78,7 @@ const CrimeMap = () => {
           ))}
         </MapContainer>
       </div>
-    </div>
+    </>
   );
 };
 

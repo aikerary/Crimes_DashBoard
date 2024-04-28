@@ -27,7 +27,7 @@ const CrimeMap = () => {
   };
 
   return (
-    <div>
+    <>
       <div>
         <label htmlFor="crimeType">Select Crime Type:</label>
         <select id="crimeType" value={selectedCrimeType} onChange={(e) => handleCrimeTypeSelect(e.target.value)}>
@@ -192,7 +192,7 @@ const CrimeMap = () => {
           ))}
         </MapContainer>
       </div>
-    </div>
+    </>
   );
 };
 

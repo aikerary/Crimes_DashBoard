@@ -2,3 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 /* Import montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+:root{
+    --background-color:#28264c;
+    --header-color: #a40033;
+    --sub-background-color: #959ec9;
+    --text-color: #f5f5f5;
+    --card-color: #373469;
+    --font-family:'Roboto', sans-serif;
+    --font-family-title:'Montserrat', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+header, footer{
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+main{
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+select{
+    font-family: var(--font-family);
+}

@@ -74,7 +74,7 @@ const BarChart = () => {
   };
 
   return (
-    <div>
+    <>
       <h2>Crime Statistics by Hour</h2>
       <div>
          <option value="">Select Crime</option>
@@ -223,7 +223,7 @@ const BarChart = () => {
       <div style={{ width: '360px', height: '400px' }}>
         <canvas id="barChart"></canvas>
       </div>
-    </div>
+    </>
   );
 };
 

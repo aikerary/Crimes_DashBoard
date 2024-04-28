@@ -1,5 +1,4 @@
 // App.js
-import { ChakraProvider, Container, Box, Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Map from "./components/Map/Map";
@@ -9,55 +8,13 @@ import Query3 from "./components/Query_3/Query_3";
 import Query5 from "./components/Query_5/Query_5";
 import Query6 from "./components/Query_6/Query_6";
 import Prop from "./components/Prop/Prop";
-import theme from "./theme";
+import Card from "./components/Card/Card";
+import './App.css'
+import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Container maxW="container.lg" py={8}>
-        <Header />
-        <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6} mt={8}>
-          <GridItem colSpan={2}>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Prop />
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Query6 />
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Query2 />
-            </Box>
-          </GridItem>
-          <GridItem colSpan={2}>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Query3 />
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-            <Query1 />
-            </Box>
-            
-          </GridItem>
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Map />
-            </Box>
-          </GridItem>
 
-          <GridItem>
-            <Box p={4} bg="rgba(0,0,0,0.2)" borderRadius="lg" boxShadow="md">
-              <Query5 />
-            </Box>
-          </GridItem>
-        </Grid>
-        <Footer />
-      </Container>
-    </ChakraProvider>
   );
 }
 
