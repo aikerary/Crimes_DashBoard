@@ -92,7 +92,6 @@ function CrimeVictimsChart() {
 
   return (
     <>
-      <h1 style={{ textAlign: 'center', color: '#950101', fontSize: '36px', marginTop: '20px' }}>Crime Victims Information</h1>
         <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <label htmlFor="datePicker" style={{ fontSize: '25px', color: '#950101' }}>Select Date:</label>
         <input
