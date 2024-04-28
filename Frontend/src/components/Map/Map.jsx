@@ -31,8 +31,8 @@ const CrimeMap = () => {
   return (
     <>
       <div>
-         <option value="">Select area</option>
          <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
+          <option value="">Select area</option>
           <option value="77th Street">77th Street</option>
           <option value="Central">Central</option>
           <option value="Devonshire">Devonshire</option>
