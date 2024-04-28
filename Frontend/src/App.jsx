@@ -25,7 +25,8 @@ function App() {
         <Card header="Crimes Mapping by Area" description="
         This plot shows a mapping of the crimes by selected area
         ">
-          <Map />
+          <Query2/>
+          
         </Card>
       </main>
       <Footer />
