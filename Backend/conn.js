@@ -14,7 +14,7 @@ var config = {
 // Funciones para ejecutar consultas
 function get_crime_location_by_type(crm_cd_desc, callback) {
     const queryString = `
-        SELECT LON, LAT
+        SELECT TOP 5000 LON, LAT
         FROM Crime_Data
         WHERE crm_cd_desc = @crm_cd_desc
           AND LAT IS NOT NULL
