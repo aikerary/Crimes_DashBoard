@@ -49,7 +49,7 @@ const VictimsByDescentAndArea = () => {
       data: data.map(item => item.Cantidad)
     }];
 
-    return <ReactApexChart options={options} series={series} type="bar" height={350} />;
+    return <ReactApexChart options={options} series={series} type="bar" height={350} width={500}/>;
   };
 
   const getCodeLabel = (code) => {
