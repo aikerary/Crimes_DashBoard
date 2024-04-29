@@ -88,7 +88,6 @@ const BarChart = () => {
 
   return (
     <>
-      <h2>Crime Statistics by Hour</h2>
       <div>
         <select id="crimeSelect" value={selectedCrime} onChange={handleCrimeChange}>
           <option value="">Select Crime</option>
