@@ -1,10 +1,38 @@
-import React, { useEffect, useState, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import React, { useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
+import './Query_6.css';
 
 const PieChart = () => {
   const [data, setData] = useState([]);
   const [selectedWeapon, setSelectedWeapon] = useState('');
-  const chartRef = useRef(null);
+  const [chartOptions, setChartOptions] = useState({
+    series: [],
+    options: {
+      chart: {
+        width: '100%',
+        type: 'pie',
+        toolbar: {
+          show: false
+        }
+      },
+      labels: [],
+      plotOptions: {
+        pie: {
+          expandOnClick: false
+        }
+      },
+      dataLabels: {
+        formatter(val, opts) {
+          const name = opts.w.globals.labels[opts.seriesIndex];
+          return [name, val.toFixed(1) + '%'];
+        }
+      },
+      legend: {
+        show: false
+      },
+      colors: ['#950101', '#C43939', '#FF9800', '#FFC107', '#FFEB3B', '#FFF176'] 
+    }
+  });
 
   useEffect(() => {
     if (selectedWeapon) {
@@ -17,47 +45,23 @@ const PieChart = () => {
       const response = await fetch(`http://localhost:5000/get_gender_distribution_by_weapon/${weaponDesc}`);
       const data = await response.json();
       setData(data);
-      renderPieChart(data);
+      updateChart(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  const renderPieChart = (data) => {
+  const updateChart = (data) => {
     const labels = data.map(item => item.Vict_Sex);
     const quantities = data.map(item => item.Cantidad);
-
-    const chartData = {
-      labels: labels,
-      datasets: [{
-        data: quantities,
-        backgroundColor: [
-          'rgba(40, 38, 76, 1)',
-          'rgba(164, 0, 51, 1)',
-          // Add more colors as needed
-        ],
-        borderColor: [
-          'rgba(40, 38, 76, 1)',
-          'rgba(54, 162, 235, 1)',
-          // Add more colors as needed
-        ],
-        borderWidth: 1
-      }]
-    };
-
-    const options = {
-      responsive: true,
-      maintainAspectRatio: false,
-    };
-
-    const ctx = document.getElementById('pieChart');
-    if (chartRef.current) {
-      chartRef.current.destroy(); // Destruir el gráfico anterior si existe
-    }
-    chartRef.current = new Chart(ctx, {
-      type: 'pie',
-      data: chartData,
-      options: options
+    
+    setChartOptions({
+      ...chartOptions,
+      series: quantities,
+      options: {
+        ...chartOptions.options,
+        labels: labels
+      }
     });
   };
 
@@ -69,7 +73,7 @@ const PieChart = () => {
     <>
       <div>
         <select id="weaponSelect" value={selectedWeapon} onChange={handleWeaponChange}>
-        <option value="">Select weapon</option>
+          <option value="">Select weapon</option>
           <option value="ANTIQUE FIREARM">Antique Firearm</option>
           <option value="AXE">Axe</option>
           <option value="BLACKJACK">Blackjack</option>
@@ -136,11 +140,12 @@ const PieChart = () => {
 
         </select>
       </div>
-      <div style={{ width: '300px', height: '400px' }}>
-        <canvas id="pieChart"></canvas>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <ReactApexChart options={chartOptions.options} series={chartOptions.series} type="pie"   height={460} width={450} />
       </div>
     </>
   );
 };
 
 export default PieChart;
+
