@@ -57,8 +57,8 @@ function App() {
           <Query1/>
         </Card>
       </main>
-      <Card header="Crimes by Gender and Weapon Used" description="
-        This graph shows the weapon used in the commission of a crime.
+      <Card header="Total distribution of Areas in Los Angeles" description="
+        Analysis of the Total Distribution of Areas in Los Angeles.
         ">
           <AreaTotal/>
         </Card>

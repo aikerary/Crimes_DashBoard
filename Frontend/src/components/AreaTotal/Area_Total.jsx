@@ -13,14 +13,6 @@ const AreaCountChart = () => {
         height: 350,
         width: '60%'
       },
-      title: {
-        text: 'Total distribution of Areas in Los Angeles',
-        align: 'center',
-        style: {
-          fontSize: '24px', // Ajusta el tamaño de la fuente del título
-          color: '#ffffff' // Cambia el color del título a blanco
-        }
-      },
       colors: [
         '#3B93A5',
         '#F7B844',
@@ -72,7 +64,7 @@ const AreaCountChart = () => {
   }, []);
 
   return (
-    <div className="area-count-chart" style={{ width: '70%' }}>
+    <div className="area-count-chart" style={{ width: 1800 }}>
       <ReactApexChart
         options={chartData.options}
         series={chartData.series}
