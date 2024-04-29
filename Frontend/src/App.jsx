@@ -23,6 +23,11 @@ function App() {
       <Card>
         <Numero />
       </Card>
+      <Card header="Total distribution of Areas in Los Angeles" description="
+        Analysis of the Total Distribution of Areas in Los Angeles.
+        ">
+          <AreaTotal/>
+        </Card>
       <main>
         <Card header="Crimes Mapping by Area" description="
         This plot shows a mapping of the crimes by selected area
@@ -57,11 +62,6 @@ function App() {
           <Query1/>
         </Card>
       </main>
-      <Card header="Total distribution of Areas in Los Angeles" description="
-        Analysis of the Total Distribution of Areas in Los Angeles.
-        ">
-          <AreaTotal/>
-        </Card>
 
       <Footer />
     </>
