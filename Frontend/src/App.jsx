@@ -12,7 +12,7 @@ import AreaTotal from "./components/AreaTotal/Area_Total";
 import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
 import "./App.css";
-import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
+
 
 function App() {
   return (
@@ -35,6 +35,13 @@ function App() {
         ">
           <Query5/>
         </Card>
+        <Card header="Sex Victims By Date" description="
+        This plot shows a mapping of the crimes by selected area
+        ">
+          <AreaTotal/>
+        </Card>
+
+      {/*   Querys de sexos */}
         <Card header="Sex Victims By Date" description="
         This plot shows a mapping of the crimes by selected area
         ">
