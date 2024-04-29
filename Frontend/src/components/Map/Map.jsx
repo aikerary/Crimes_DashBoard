@@ -3,7 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css'
-
+import redMarker from './marker.png';
+const redIcon = new L.Icon({
+  iconUrl: redMarker,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 const CrimeMap = () => {
   const [selectedArea, setSelectedArea] = useState('');
   const [areasData, setAreasData] = useState([]);
@@ -67,7 +74,11 @@ const CrimeMap = () => {
             accessToken="pk.eyJ1IjoibXlzdGljMjMiLCJhIjoiY2x2aG11OTFwMTdvNTJpb3ppdGgyenRnNCJ9.3tmaMtmoEHwZtX_mEztE8Q"
           />
           {areasData.map((area, index) => (
-            <Marker key={index} position={[parseFloat(area.LAT), parseFloat(area.LON)]}>
+            <Marker
+              key={index}
+              position={[parseFloat(area.LAT), parseFloat(area.LON)]}
+              icon={redIcon} 
+            >
               <Popup>
                 <div>
                   <h3>{area.AREA_NAME}</h3>
