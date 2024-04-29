@@ -46,14 +46,22 @@ function App() {
         ">
           <Query6/>
         </Card>
-
-        <Card header="Victims by Descent and Area" description="
-        This graph shows the number of victims by Descent by area.
+        <Card header="Crimes by Gender and Weapon Used" description="
+        User interface that displays the number of crimes and their corresponding hours in a bar graph.
+        ">
+          <Query3/>
+        </Card>
+        <Card header="Crimes by Gender and Weapon Used" description="
+        This graph shows the weapon used in the commission of a crime.
         ">
           <AreaTotal/>
         </Card>
       </main>
-      
+      <Card header="Crime Map showing Incidents" description="
+        A crime mapping system that uses crime data, latitude and longitude coordinates, to visualize the location of incidents on a map.
+        ">
+          <Query1/>
+        </Card>
       <Footer />
     </>
   );
