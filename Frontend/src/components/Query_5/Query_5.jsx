@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import './Query_5.css';
 
 const VictimsByDescentAndArea = () => {
   const [selectedArea, setSelectedArea] = useState('');
@@ -28,7 +29,7 @@ const VictimsByDescentAndArea = () => {
     const options = {
       chart: {
         type: 'bar',
-        height: 350,
+        width: '100%',
       },
       plotOptions: {
         bar: {
@@ -42,14 +43,15 @@ const VictimsByDescentAndArea = () => {
       },
       xaxis: {
         categories: data.map(item => getCodeLabel(item.Vict_Descent))
-      }
+      },
+      colors: ['#950101']
     };
 
     const series = [{
       data: data.map(item => item.Cantidad)
     }];
 
-    return <ReactApexChart options={options} series={series} type="bar" height={350} width={500}/>;
+    return <ReactApexChart options={options} series={series} type="bar"  height={460} width={860}/>;
   };
 
   const getCodeLabel = (code) => {
@@ -102,7 +104,7 @@ const VictimsByDescentAndArea = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: '100%', textAlign: 'center' }}>
       <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
         <option value="">Select area</option>
         <option value="77th Street">77th Street</option>
@@ -127,7 +129,7 @@ const VictimsByDescentAndArea = () => {
         <option value="West Valley">West Valley</option>
         <option value="Wilshire">Wilshire</option>
       </select>
-      {renderApexChart(victimData)}
+      {renderApexChart(victimData)} 
     </div>
   );
 };
