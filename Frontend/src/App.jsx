@@ -13,7 +13,6 @@ import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
 import "./App.css";
 
-
 function App() {
   return (
     <>
@@ -31,28 +30,30 @@ function App() {
           <Map/>
         </Card>
         <Card header="Victims by Descent and Area" description="
-        This plot shows a mapping of the crimes by selected area
+        This graph shows the number of victims by Descent by area.
         ">
           <Query5/>
         </Card>
+        
+         {/*   Querys de sexos */}
         <Card header="Sex Victims By Date" description="
-        This plot shows a mapping of the crimes by selected area
-        ">
-          <AreaTotal/>
-        </Card>
-
-      {/*   Querys de sexos */}
-        <Card header="Sex Victims By Date" description="
-        This plot shows a mapping of the crimes by selected area
+        This graph shows the gender distribution of crime victims on a specific date.
         ">
           <Query2/>
         </Card>
-        <Card header="Sex Victims By Date" description="
-        This plot shows a mapping of the crimes by selected area
+        <Card header="Crimes by Gender and Weapon Used" description="
+        This graph shows the weapon used in the commission of a crime.
         ">
           <Query6/>
         </Card>
+
+        <Card header="Victims by Descent and Area" description="
+        This graph shows the number of victims by Descent by area.
+        ">
+          <AreaTotal/>
+        </Card>
       </main>
+      
       <Footer />
     </>
   );
