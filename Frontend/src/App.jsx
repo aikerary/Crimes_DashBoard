@@ -40,6 +40,11 @@ function App() {
         ">
           <Query2/>
         </Card>
+        <Card header="Sex Victims By Date" description="
+        This plot shows a mapping of the crimes by selected area
+        ">
+          <Query6/>
+        </Card>
       </main>
       <Footer />
     </>

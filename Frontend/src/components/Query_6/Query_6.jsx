@@ -67,10 +67,9 @@ const PieChart = () => {
 
   return (
     <>
-      <h2>Crime Statistics by Gender</h2>
       <div>
-        <label htmlFor="weaponSelect">Select Weapon:</label>
         <select id="weaponSelect" value={selectedWeapon} onChange={handleWeaponChange}>
+        <option value="">Select weapon</option>
           <option value="ANTIQUE FIREARM">Antique Firearm</option>
           <option value="AXE">Axe</option>
           <option value="BLACKJACK">Blackjack</option>
