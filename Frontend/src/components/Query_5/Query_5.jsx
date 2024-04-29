@@ -28,7 +28,7 @@ const VictimsByDescentAndArea = () => {
     const options = {
       chart: {
         type: 'bar',
-        height: 350
+        height: 350,
       },
       plotOptions: {
         bar: {
@@ -49,7 +49,7 @@ const VictimsByDescentAndArea = () => {
       data: data.map(item => item.Cantidad)
     }];
 
-    return <ReactApexChart options={options} series={series} type="bar" height={350} />;
+    return <ReactApexChart options={options} series={series} type="bar" height={350} width={500}/>;
   };
 
   const getCodeLabel = (code) => {
@@ -103,7 +103,6 @@ const VictimsByDescentAndArea = () => {
 
   return (
     <div>
-      <h1>Victims by Descent and Area</h1>
       <select value={selectedArea} onChange={(e) => handleAreaSelect(e.target.value)}>
         <option value="">Select area</option>
         <option value="77th Street">77th Street</option>

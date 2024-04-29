@@ -12,7 +12,6 @@ import AreaTotal from "./components/AreaTotal/Area_Total";
 import Prop from "./components/Prop/Prop";
 import Card from "./components/Card/Card";
 import "./App.css";
-import Cantidad_Crimenes from "./components/Cantidad_Crimenes/Cantidad_Crimenes"; // Nuevo componente
 
 function App() {
   return (
@@ -21,14 +20,48 @@ function App() {
       <Card>
         <Prop />
       </Card>
+      <Card>
+        <Numero />
+      </Card>
       <main>
         <Card header="Crimes Mapping by Area" description="
         This plot shows a mapping of the crimes by selected area
         ">
+          <Map/>
+        </Card>
+        <Card header="Victims by Descent and Area" description="
+        This graph shows the number of victims by Descent by area.
+        ">
+          <Query5/>
+        </Card>
+        
+         {/*   Querys de sexos */}
+        <Card header="Sex Victims By Date" description="
+        This graph shows the gender distribution of crime victims on a specific date.
+        ">
           <Query2/>
-          
+        </Card>
+        <Card header="Crimes by Gender and Weapon Used" description="
+        This graph shows the weapon used in the commission of a crime.
+        ">
+          <Query6/>
+        </Card>
+        <Card header="Crimes by Gender and Weapon Used" description="
+        User interface that displays the number of crimes and their corresponding hours in a bar graph.
+        ">
+          <Query3/>
+        </Card>
+        <Card header="Crimes by Gender and Weapon Used" description="
+        This graph shows the weapon used in the commission of a crime.
+        ">
+          <AreaTotal/>
         </Card>
       </main>
+      <Card header="Crime Map showing Incidents" description="
+        A crime mapping system that uses crime data, latitude and longitude coordinates, to visualize the location of incidents on a map.
+        ">
+          <Query1/>
+        </Card>
       <Footer />
     </>
   );
