@@ -1,23 +1,33 @@
-
 import React, { useEffect, useState } from 'react';
 
 const TotalCrimeCount = () => {
   const [totalCrimeCount, setTotalCrimeCount] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/get_total_crime_count')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setTotalCrimeCount(data[0].Total_Delitos);
-      })
-      .catch(error => {
-        console.error('Error fetching total crime count:', error);
-      });
+    const fetchData = () => {
+      fetch('http://localhost:5000/get_total_crime_count')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setTotalCrimeCount(data[0].Total_Delitos);
+        })
+        .catch(error => {
+          console.error('Error fetching total crime count:', error);
+        });
+    };
+
+    // Fetch data initially
+    fetchData();
+
+    // Fetch data every 5 minutes (300,000 milliseconds)
+    const intervalId = setInterval(fetchData, 3000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
