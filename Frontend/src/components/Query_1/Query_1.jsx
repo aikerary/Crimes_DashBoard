@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import redMarker from './marker.png';
+const redIcon = new L.Icon({
+  iconUrl: redMarker,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 const CrimeMap = () => {
   const [selectedCrimeType, setSelectedCrimeType] = useState('');
@@ -181,7 +190,11 @@ const CrimeMap = () => {
             accessToken="pk.eyJ1IjoibXlzdGljMjMiLCJhIjoiY2x2aG11OTFwMTdvNTJpb3ppdGgyenRnNCJ9.3tmaMtmoEHwZtX_mEztE8Q"
           />
           {crimeLocations.map((crimeLocation, index) => (
-            <Marker key={index} position={[parseFloat(crimeLocation.LAT), parseFloat(crimeLocation.LON)]}>
+            <Marker
+              key={index}
+              position={[parseFloat(crimeLocation.LAT), parseFloat(crimeLocation.LON)]}
+              icon={redIcon} 
+            >
               <Popup>
                 <div>
                   <h3>Crime Location</h3>
