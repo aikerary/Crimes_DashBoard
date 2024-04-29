@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import ReactApexChart from 'react-apexcharts';
+import './Query_3.css'
 
 const BarChart = () => {
   const [data, setData] = useState([]);
@@ -23,62 +24,74 @@ const BarChart = () => {
     }
   };
 
-  const renderBarChart = (data) => {
-    const hours = data.map(item => item.Hour);
-    const crimeCounts = data.map(item => item.NumeroDeCrimenes);
-
-    const chartData = {
-      labels: hours,
-      datasets: [{
-        label: `Number of Crimes for ${selectedCrime}`,
-        data: crimeCounts,
-        backgroundColor: 'rgba(164, 0, 51, 1)',
-        borderColor: 'rgba(164, 0, 51, 1)',
-        borderWidth: 1
-      }]
-    };
-
-    const options = {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          title: {
-            display: true,
-            text: 'Horas'
-          }
-        },
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Cantidad de crimenes'
-          }
-        }
-      }
-    };
-
-    const ctx = document.getElementById('barChart');
-    if (chartRef.current) {
-      chartRef.current.destroy(); // Destruir el gráfico anterior si existe
-    }
-    chartRef.current = new Chart(ctx, {
-      type: 'bar',
-      data: chartData,
-      options: options
-    });
-  };
+  
 
   const handleCrimeChange = (event) => {
     setSelectedCrime(event.target.value);
+  };
+
+  const chartData = {
+    options: {
+      chart: {
+        height: 350,
+        type: 'bar',
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 10,
+          columnWidth: '50%',
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width: 0
+      },
+      // grid: {
+      //   row: {
+      //     colors: ['#fff', '#f2f2f2']
+      //   }
+      // },
+      xaxis: {
+        labels: {
+          rotate: -45
+        },
+        categories: data.map(item => item.Hour),
+        tickPlacement: 'on'
+      },
+      yaxis: {
+        title: {
+          text: 'Cantidad de crimenes',
+        },
+      },
+      colors: ['#950101', '#28264C', '#605C5C'],
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'light',
+          type: "horizontal",
+          shadeIntensity: 0.25,
+          gradientToColors: undefined,
+          inverseColors: true,
+          opacityFrom: 0.85,
+          opacityTo: 0.85,
+          stops: [50, 0, 100]
+        },
+      }
+    },
+    series: [{
+      name: `Number of Crimes for ${selectedCrime}`,
+      data: data.map(item => item.NumeroDeCrimenes)
+    }]
   };
 
   return (
     <>
       <h2>Crime Statistics by Hour</h2>
       <div>
-         <option value="">Select Crime</option>
-         <select id="crimeSelect" value={selectedCrime} onChange={handleCrimeChange}>
+        <select id="crimeSelect" value={selectedCrime} onChange={handleCrimeChange}>
+          <option value="">Select Crime</option>
           <option value="ASSAULT WITH DEADLY WEAPON ON POLICE OFFICER">Assault with Deadly Weapon on Police Officer</option>
           <option value="ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT">Assault with Deadly Weapon, Aggravated Assault</option>
           <option value="ATTEMPTED ROBBERY">Attempted Robbery</option>
@@ -217,14 +230,13 @@ const BarChart = () => {
           <option value="VIOLATION OF RESTRAINING ORDER">Violation of Restraining Order</option>
           <option value="VIOLATION OF TEMPORARY RESTRAINING ORDER">Violation of Temporary Restraining Order</option>
           <option value="WEAPONS POSSESSION/BOMBING">Weapons Possession/Bombing</option>
-
         </select>
       </div>
-      <div style={{ width: '360px', height: '400px' }}>
-        <canvas id="barChart"></canvas>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <ReactApexChart options={chartData.options} series={chartData.series} type="bar"  height={500} width={500} />
       </div>
     </>
   );
 };
 
-export default BarChart;
+export default BarChart;  
